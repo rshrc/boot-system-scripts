@@ -1,0 +1,14 @@
+[Unit]
+Description=${SERVICE_DESCRIPTION}
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /boot_service.py
+Restart=no
+User=${USERNAME}
+Environment=PATH=/usr/bin:/bin:/usr/local/bin
+WorkingDirectory=$(pwd)/boot_service.py
+
+[Install]
+WantedBy=multi-user.target
+EOL
